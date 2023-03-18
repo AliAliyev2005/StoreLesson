@@ -1,7 +1,12 @@
+import { Button, Container } from "@chakra-ui/react";
+
 function App() {
     return (
         <div className="App">
-            <h1>Hello</h1>
+            <Container>
+                <h1>Hello</h1>
+                <Button>Test Button</Button>
+            </Container>
         </div>
     );
 }
