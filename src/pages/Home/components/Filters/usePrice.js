@@ -1,16 +1,16 @@
-import { Input, HStack, InputGroup, InputLeftAddon } from "@chakra-ui/react";
+import { Input, HStack, InputGroup, InputLeftAddon, InputLeftElement } from "@chakra-ui/react";
 import React from "react";
 
 function usePrice() {
     const PriceRange = (
         <HStack spacing={4}>
             <InputGroup>
-                <InputLeftAddon children="₼" />
-                <Input placeholder="Min" />
+                <InputLeftElement children="₼" />
+                <Input bg={"white"} placeholder="Min" />
             </InputGroup>
             <InputGroup>
-                <InputLeftAddon children="₼" />
-                <Input placeholder="Max" />
+                <InputLeftElement children="₼" />
+                <Input bg={"white"} placeholder="Max" />
             </InputGroup>
         </HStack>
     );

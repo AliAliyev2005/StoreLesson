@@ -1,12 +1,12 @@
-import Announcement from "./components/Announcement";
-import Nav from "./components/Nav";
-import Home from "./pages/Home/Home";
+import Announcement from "./layouts/Announcement";
+import Navbar from "./layouts/Navbar";
+import Home from "./pages/Home";
 
 function App() {
     return (
         <div className="app">
             <Announcement />
-            <Nav />
+            <Navbar />
             <Home />
         </div>
     );
