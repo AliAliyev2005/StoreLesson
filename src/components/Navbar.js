@@ -125,7 +125,7 @@ const Navbar = () => {
                         </RadioGroup>
                         <Box __css={{ display: "flex" }}>
                             <h3>Min:</h3>
-                            <NumberInput size="sm" defaultValue={15} min={10}>
+                            <NumberInput size="sm" defaultValue={15}>
                                 <NumberInputField focusBorderColor="red.200" />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper
@@ -143,7 +143,7 @@ const Navbar = () => {
                         </Box>
                         <Box __css={{ display: "flex" }}>
                             <h3>Max:</h3>
-                            <NumberInput size="sm" defaultValue={15} min={10}>
+                            <NumberInput size="sm" defaultValue={15}>
                                 <NumberInputField focusBorderColor="red.200" />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper
