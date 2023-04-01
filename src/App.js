@@ -1,12 +1,13 @@
-import { Container } from "@chakra-ui/react";
-import { Navbar } from "./components/Navbar.js";
+import Announcement from "./layouts/Announcement";
+import Navbar from "./layouts/Navbar";
+import Home from "./pages/Home";
 
 function App() {
     return (
         <div className="app">
-            <Container maxW="1200px">
-                <Navbar />
-            </Container>
+            <Announcement />
+            <Navbar />
+            <Home />
         </div>
     );
 }
