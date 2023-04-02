@@ -2,12 +2,10 @@ import { Box, Image, Flex, Badge, Text, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { MdStar } from "react-icons/md";
 
-function Product(index) {
-    let id = index;
-
+function Product(id) {
     const [displayBtn, setDisplayBtn] = useState(true);
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
     return (
         <Box p="5" maxW="320px" borderWidth="1px" borderRadius={10}>
@@ -86,11 +84,7 @@ function Product(index) {
                         _hover={{ background: "var(--chakra-colors-teal-600)" }}
                         colorScheme={"teal"}
                         size={"sm"}
-                        onClick={() => {
-                            setCount(() => {
-                                count++;
-                            });
-                        }}>
+                        onClick={() => {}}>
                         +
                     </Button>
                     <Button
@@ -119,11 +113,7 @@ function Product(index) {
                         _hover={{ background: "var(--chakra-colors-teal-600)" }}
                         colorScheme={"teal"}
                         size={"sm"}
-                        onClick={() => {
-                            setCount(() => {
-                                count--;
-                            });
-                        }}>
+                        onClick={() => {}}>
                         -
                     </Button>
                 </Flex>
