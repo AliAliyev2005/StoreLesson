@@ -1,14 +1,19 @@
 import { Select } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function useCategory() {
-    const data = []; // TODO : get data
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        axios.get("data/categories.json").then((res) => setCategories(res.data));
+    }, []);
 
     const Category = (
-        <Select placeholder="Kateqoriya" onChange={() => console.log("som")} bg={"white"}>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+        <Select placeholder="Kateqoriya" onChange={() => console.log("filter")} bg={"white"}>
+            {categories.map((category) => (
+                <option value={category.id}>{category.name}</option>
+            ))}
         </Select>
     );
 
