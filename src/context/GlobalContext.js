@@ -5,12 +5,9 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
     const { onToggle: onToggleFilter, Filter } = useFilter();
+    
 
-    return (
-        <GlobalContext.Provider value={{ onToggleFilter, Filter }}>
-            {children}
-        </GlobalContext.Provider>
-    );
+    return <GlobalContext.Provider value={{ onToggleFilter, Filter }}>{children}</GlobalContext.Provider>;
 };
 
 const useGlobalContext = () => useContext(GlobalContext);

@@ -1,13 +1,13 @@
 import { Box, Button, Container, Flex, Heading, HStack, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useGlobalContext } from "../context/GlobalContext";
-import useBasket from "../pages/Home/hooks/useBasket";
 import { Search2Icon } from "@chakra-ui/icons";
 import { BsCart3 } from "react-icons/bs";
 import { ImFilter } from "react-icons/im";
 import React from "react";
+import { useBasketContext } from "../context/BasketContext";
 
 function Navbar() {
-    const { onOpen, BasketDrawer } = useBasket();
+    const { onOpen: onOpenBasket, BasketDrawer } = useBasketContext();
     const { onToggleFilter } = useGlobalContext();
 
     return (
@@ -23,7 +23,7 @@ function Navbar() {
                         <Button rightIcon={<ImFilter />} onClick={onToggleFilter}>
                             Filter
                         </Button>
-                        <Button rightIcon={<BsCart3 />} onClick={onOpen}>
+                        <Button rightIcon={<BsCart3 />} onClick={onOpenBasket}>
                             Səbət
                         </Button>
                     </HStack>
