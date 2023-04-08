@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Nəqliyyat"
+    },
+    {
+        "id": 2,
+        "name": "Ev və bağ üçün"
+    },
+    {
+        "id": 3,
+        "name": "Elektronika"
+    },
+    {
+        "id": 4,
+        "name": "Daşınmaz əmlak"
+    },
+    {
+        "id": 5,
+        "name": "Şəxsi əşyalar"
+    },
+    {
+        "id": 6,
+        "name": "Xidmətlər və biznes"
+    },
+    {
+        "id": 7,
+        "name": "Hobbi və asudə"
+    },
+    {
+        "id": 8,
+        "name": "Uşaq aləmi"
+    },
+    {
+        "id": 9,
+        "name": "Heyvanlar"
+    },
+    {
+        "id": 10,
+        "name": "İş elanları"
+    }
+]
