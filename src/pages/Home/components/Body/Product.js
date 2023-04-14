@@ -66,7 +66,7 @@ function Product({ data }) {
                         fontSize="2xl"
                         lineHeight="short"
                         fontWeight="semibold">
-                        {data.price}
+                        ${data.price}
                     </Text>
                     <Flex>
                         <Button
