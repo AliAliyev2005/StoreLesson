@@ -2,37 +2,39 @@ import { Button, ButtonGroup } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
 import { Flex } from "@chakra-ui/layout";
 import React, { useState } from "react";
+import { useBasketContext } from "../../../../context/BasketContext";
 
 function useProductCounter(product) {
-    const [count, setCount] = useState(0);
+    const { basket, setBasket } = useBasketContext();
+    const [count, setCount] = useState(basket.find((i) => i.id == product.id)?.quantity || product.quantity || 0);
 
     function decrement() {
         setCount(count - 1);
 
-        let basket = JSON.parse(localStorage.getItem("basket")) ?? [];
         let pIndex = basket.findIndex((p) => p.id == product.id);
+        let tempBasket = [...basket];
 
         if (pIndex != -1) {
-            basket[pIndex].quantity -= 1;
+            tempBasket[pIndex].quantity -= 1;
 
-            if (basket[pIndex].quantity == 0) {
-                let newBasket = basket.filter((p) => p.id != product.id);
-                localStorage.setItem("basket", JSON.stringify(newBasket));
+            if (tempBasket[pIndex].quantity == 0) {
+                let newBasket = tempBasket.filter((p) => p.id != product.id);
+                setBasket(newBasket);
             } else {
-                localStorage.setItem("basket", JSON.stringify(basket));
+                setBasket(tempBasket);
             }
         }
     }
     function increment() {
         setCount(count + 1);
 
-        let basket = JSON.parse(localStorage.getItem("basket")) ?? [];
         let pIndex = basket.findIndex((p) => p.id == product.id);
+        let tempBasket = [...basket];
 
         if (pIndex != -1) {
-            basket[pIndex].quantity += 1;
+            tempBasket[pIndex].quantity += 1;
         } else {
-            basket.push({
+            tempBasket.push({
                 id: product.id,
                 name: product.name,
                 price: product.price,
@@ -40,7 +42,7 @@ function useProductCounter(product) {
             });
         }
 
-        localStorage.setItem("basket", JSON.stringify(basket));
+        setBasket(tempBasket);
     }
 
     const Counter = (
