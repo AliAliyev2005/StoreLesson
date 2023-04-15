@@ -1,15 +1,7 @@
-import { useGlobalContext } from "../../context/GlobalContext";
-import ProductsList from "./components/Body/ProductsList";
+import MyRouter from "../../Router";
 
 function Home() {
-    const { Filter } = useGlobalContext();
-
-    return (
-        <div>
-            {Filter}
-            <ProductsList />
-        </div>
-    );
+    return <MyRouter />;
 }
 
 export default Home;

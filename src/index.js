@@ -5,6 +5,7 @@ import "./index.css";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
 import { GlobalProvider } from "./context/GlobalContext";
 import { BasketProvider } from "./context/BasketContext";
+import { BrowserRouter } from "react-router-dom";
 
 const colors = {
     brand: {
@@ -19,12 +20,14 @@ const theme = extendTheme({ colors });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <GlobalProvider>
-            <BasketProvider>
-                <ChakraProvider theme={theme}>
-                    <App />
-                </ChakraProvider>
-            </BasketProvider>
-        </GlobalProvider>
+        <BrowserRouter>
+            <GlobalProvider>
+                <BasketProvider>
+                    <ChakraProvider theme={theme}>
+                        <App />
+                    </ChakraProvider>
+                </BasketProvider>
+            </GlobalProvider>
+        </BrowserRouter>
     </React.StrictMode>
 );
