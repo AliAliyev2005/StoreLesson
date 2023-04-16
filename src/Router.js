@@ -1,25 +1,16 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useGlobalContext } from "./Contexts/GlobalContex";
-import ProductsList from "./pages/Home/components/Body/ProductsList";
+import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
 
-const MyRouter = () => {
-    const { Filter } = useGlobalContext();
-
+function Router() {
     return (
         <Routes>
-            <Route
-                path="/"
-                element={
-                    <div>
-                        {Filter}
-                        <ProductsList />
-                    </div>
-                }
-            />
-            <Route path="/items/:id" element={{}} />
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
+            <Route path="*" element={<h1>404</h1>}></Route>
         </Routes>
     );
-};
+}
 
-export { MyRouter };
+export default Router;

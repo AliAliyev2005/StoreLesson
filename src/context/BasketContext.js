@@ -17,6 +17,8 @@ import {
 import { DeleteIcon } from "@chakra-ui/icons";
 import { createContext, useContext, useState } from "react";
 import useProductCounter from "../pages/Home/components/Body/useProductCounter";
+import round from "../utils/round";
+import { useNavigate } from "react-router-dom";
 
 const BasketContext = createContext();
 
@@ -24,6 +26,12 @@ const BasketProvider = ({ children }) => {
     const [basket, setBasket] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const total = basket.reduce((a, b) => +a + +b.price * +b.quantity, 0);
+    const navigate = useNavigate();
+
+    function handleCheckout() {
+        navigate("/checkout");
+        onClose();
+    }
 
     const BasketItem = ({ data, setBasket }) => {
         const { Counter, count, increment } = useProductCounter(data);
@@ -41,7 +49,7 @@ const BasketProvider = ({ children }) => {
                         <Box>
                             {data.quantity} əd x ${data.price} ={" "}
                             <Box as="span" fontWeight={"bold"}>
-                                ${data.quantity * data.price}
+                                ${round(data.quantity * data.price)}
                             </Box>
                         </Box>
                     </Box>
@@ -71,13 +79,15 @@ const BasketProvider = ({ children }) => {
                     <Button variant="outline" mr={3} onClick={onClose}>
                         Cancel
                     </Button>
-                    <Button colorScheme="teal">${total} Pay</Button>
+                    <Button isDisabled={!total} colorScheme="teal" onClick={handleCheckout}>
+                        ${round(total)} Checkout
+                    </Button>
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>
     );
 
-    return <BasketContext.Provider value={{ BasketDrawer, basket, setBasket, onOpen }}>{children}</BasketContext.Provider>;
+    return <BasketContext.Provider value={{ BasketDrawer, basket, setBasket, onOpen, total }}>{children}</BasketContext.Provider>;
 };
 
 const useBasketContext = () => useContext(BasketContext);

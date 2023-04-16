@@ -11,16 +11,14 @@ function ProductsList() {
     }, []);
 
     return (
-        <div>
-            <Container maxW={"1200px"}>
-                <Heading my={5}>Məhsullar</Heading>
-                <SimpleGrid spacing={4} templateColumns="repeat(auto-fill, minmax(250px, 1fr))">
-                    {products.map((p, index) => (
-                        <Product key={index} data={p} />
-                    ))}
-                </SimpleGrid>
-            </Container>
-        </div>
+        <Container maxW={"1200px"}>
+            <Heading my={5}>Məhsullar</Heading>
+            <SimpleGrid spacing={4} templateColumns="repeat(auto-fill, minmax(250px, 1fr))">
+                {products.map((p, index) => (
+                    <Product key={index} data={p} />
+                ))}
+            </SimpleGrid>
+        </Container>
     );
 }
 
